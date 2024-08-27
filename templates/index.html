@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CPI Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+    <style>
+        /* Additional Inline Styling */
+        body {
+            background-color: #e6f7ff;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: #007acc;
+            margin-top: 20px;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        h2 {
+            color: #007acc;
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        div {
+            margin-bottom: 20px;
+        }
+
+        input[type="submit"] {
+            width: auto;
+            background-color: #007acc;
+            color: white;
+            font-size: 1.2rem;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005f99;
+        }
+
+        /* Style for result display */
+        h2 {
+            font-size: 2.5rem;
+            color: #0a0a0a;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1><u>CPI Prediction</u></h1>
+    <h3>Fill out the following details to predict your CPI for the upcoming semester.</h3>
+    
+    <form method="POST" action="/">
+        {{ form.hidden_tag() }}
+        <!-- Gender -->
+        <div>
+            {{ form.gender.label }}
+            {{ form.gender() }}<br>
+        </div>
+
+        <!-- Category -->
+        <div>
+            {{ form.category.label }}
+            {{ form.category() }}<br>
+        </div>
+        
+        <!-- Parental Education -->
+        <div>
+            {{ form.parental_education.label }}
+            {{ form.parental_education() }}<br>
+        </div>
+        
+        <!-- Hometown Area -->
+        <div>
+            {{ form.hometown_area.label }}
+            {{ form.hometown_area() }}<br>
+        </div>
+
+        <!-- Family Annual Income -->
+        <div>
+            {{ form.family_annual_income.label }}
+            {{ form.family_annual_income() }}<br>
+        </div>
+
+        
+        <!-- Guidance from Family -->
+        <div>
+            {{ form.guidance_from_family.label }}
+            {{ form.guidance_from_family() }}<br>
+        </div>
+        
+        <!-- Family Member in Same Field -->
+        <div>
+            {{ form.family_member_in_same_field.label }}
+            {{ form.family_member_in_same_field() }}<br>
+        </div>
+        
+        <!-- Percentage in 10th -->
+        <div>
+            {{ form.percentage_10th.label }}
+            {{ form.percentage_10th() }}<br>
+        </div>
+        
+        <!-- Percentage in 12th -->
+        <div>
+            {{ form.percentage_12th.label }}
+            {{ form.percentage_12th() }}<br>
+        </div>
+        
+        <!-- Medium Studied In -->
+        <div>
+            {{ form.medium_studied_in.label }}
+            {{ form.medium_studied_in() }}<br>
+        </div>
+        
+        <!-- CPI in Graduation -->
+        <div>
+            {{ form.cpi_graduation.label }}
+            {{ form.cpi_graduation() }}<br>
+        </div>
+        
+        <!-- Course -->
+        <div>
+            {{ form.course.label }}
+            {{ form.course() }}<br>
+        </div>
+        
+        <!-- College Type -->
+        <div>
+            {{ form.college_type.label }}
+            {{ form.college_type() }}<br>
+        </div>
+        <!-- Attendance in class -->
+        <div>
+            {{ form.attendance_in_class.label }}
+            {{ form.attendance_in_class() }}<br>
+        </div>
+        
+        <!-- Living Arrangement -->
+        <div>
+            {{ form.living_arrangement.label }}
+            {{ form.living_arrangement() }}<br>
+        </div>
+
+        <!-- Participation in Class -->
+        <div>
+            {{ form.participation_in_class.label }}
+            {{ form.participation_in_class() }}<br>
+        </div>
+
+        <!-- Homework Submission -->
+        <div>
+         {{ form.homework_submission.label }}
+        {{ form.homework_submission() }}<br>
+        </div>
+
+        <!-- Preparation Level for Exam -->
+        <div>
+            {{ form.preparation_level_for_exam.label }}
+            {{ form.preparation_level_for_exam() }}<br>
+        </div>
+
+        <!-- Internet Usage -->
+        <div>
+            {{ form.internet_usage.label }}
+            {{ form.internet_usage() }}<br>
+        </div>
+
+        <!-- Weekend Plans -->
+        <div>
+            {{ form.weekend_plans.label }}
+            {{ form.weekend_plans() }}<br>
+        </div>
+
+        
+        
+        <!-- Study Technique -->
+        <div>
+            {{ form.study_technique.label }}
+            {{ form.study_technique() }}<br>
+        </div>
+
+        <!-- Study Environment -->
+        <div>
+            {{ form.study_environment.label }}
+            {{ form.study_environment() }}<br>
+        </div>
+
+
+        
+        <!-- Learning Style -->
+        <div>
+            {{ form.learning_style.label }}
+            {{ form.learning_style() }}<br>
+        </div>
+       
+        <!-- Sleeping Time -->
+        <div>
+            {{ form.sleeping_time.label }}
+            {{ form.sleeping_time() }}<br>
+        </div>
+
+        <!-- Extracurricular Activities -->
+        <div>
+            {{ form.extracurricular_activities.label }}
+            {{ form.extracurricular_activities() }}<br>
+        </div>
+
+        
+        <!-- Relationship Status in Last Sem -->
+        <div>
+            {{ form.relationship_status_in_last_sem.label }}
+            {{ form.relationship_status_in_last_sem() }}<br>
+        </div>
+        
+        <!-- Submit Button -->
+        <div>
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+
+    <!-- Display Result -->
+    {% if result %}
+        <h2>Your predicted CPI for the upcoming semester is: <br><u>{{ result }}</u></h2>
+    {% endif %}
+</body>
+</html>
