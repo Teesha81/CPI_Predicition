@@ -1,0 +1,5 @@
+pandas
+flask
+joblib
+flask_wtf
+scikit-learn==1.3.2
