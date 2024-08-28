@@ -1,10 +1,7 @@
-import numpy 
-import pandas 
 from flask import Flask, render_template, request
 from forms import CPIPredictionForm  
 import joblib
-
-
+import pandas as pd
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here'
@@ -17,11 +14,12 @@ encoders = joblib.load('preprocessor.joblib')
 def index():
     form = CPIPredictionForm()  
     cpi_prediction = None
-    
+    print("index")
     if form.validate_on_submit():
+        print("Form is valid")
         # Extract data from the form
         data = {
-            'Gender':form.gender.data,
+            'Gender': form.gender.data,
             'Category': form.category.data,
             'Parental Education': form.parental_education.data,
             'Hometown Area': form.hometown_area.data,
@@ -37,8 +35,8 @@ def index():
             'Attendance in class': form.attendance_in_class.data,
             'Living arrangement': form.living_arrangement.data,
             'Participation in class': form.participation_in_class.data,
-            'Homework submission':form.homework_submission.data,
-            'Preparation level':form.preparation_level_for_exam.data,
+            'Homework submission': form.homework_submission.data,
+            'Preparation level': form.preparation_level_for_exam.data,
             'Internet Usage': form.internet_usage.data,
             'Weekend plans': form.weekend_plans.data,
             'Study technique': form.study_technique.data,
@@ -50,22 +48,19 @@ def index():
             'Relationship Status in last sem': form.relationship_status_in_last_sem.data
         }
 
- 
-  
-    data_df = pd.DataFrame([data])
-      
+        data_df = pd.DataFrame([data])
+        print("Form data:", data_df)
     
-    preprocessed_data =encoders.transform(data_df)
+        preprocessed_data = encoders.transform(data_df)
+        transformed_columns = encoders.get_feature_names_out()
+        preprocessed_data_df = pd.DataFrame(preprocessed_data, columns=transformed_columns)
 
-    # Convert to DataFrame with the correct feature names
-    import pandas as pd
-    transformed_columns = encoders.get_feature_names_out()
-    preprocessed_data_df = pd.DataFrame(preprocessed_data, columns=transformed_columns)
-
-    # Predict using the trained model
-    prediction = model.predict(preprocessed_data_df)
-    cpi_prediction = float(prediction[0])
-    cpi_prediction
+        prediction = model.predict(preprocessed_data_df)
+        cpi_prediction = float(prediction[0])
+        print("CPI prediction:", cpi_prediction)
+    else:
+        print("Form validation failed")
+        print("Errors:", form.errors)
         
     return render_template('index.html', form=form, result=cpi_prediction)
 
