@@ -5,8 +5,8 @@ from wtforms.validators import DataRequired
 class CPIPredictionForm(FlaskForm):
     gender = RadioField('Gender ', 
                         choices=[('Male', 'Male'),
-                                 ('Female', 'Female'),
-                                 ('Other', 'Other')],
+                                 ('Female', 'Female')
+                                ],
                         validators=[DataRequired()])
 
     category = RadioField('Category ', 
@@ -25,8 +25,8 @@ class CPIPredictionForm(FlaskForm):
     hometown_area = RadioField('Please specify the type of area where your hometown is', 
                                choices=[('Rural', 'Rural'),
                                         ('Semi-Urban', 'Semi-Urban'),
-                                        ('Urban', 'Urban'),
-                                        ("Other (if the area doesn't belong to any of the above types)", "Other (if the area doesn't belong to any of the above types)")],
+                                        ('Urban', 'Urban')],
+                                       
                                validators=[DataRequired()])
 
     family_annual_income = RadioField('Family annual income', 
@@ -90,7 +90,7 @@ class CPIPredictionForm(FlaskForm):
                                  ('B.Lib.I.Sc.', 'B.Lib.I.Sc.'),
                                  ('Ett', 'Ett'),
                                  ('Cosmetology ', 'Cosmetology'),
-                                 ('Pcs', 'Pcs '),
+                                 ('Pcs ', 'Pcs'),
                                  ('Other', 'Other')],
                         validators=[DataRequired()])
 
