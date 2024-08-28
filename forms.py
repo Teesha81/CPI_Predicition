@@ -98,7 +98,7 @@ class CPIPredictionForm(FlaskForm):
                               choices=[('IIT', 'IIT'),
                                        ('NIT', 'NIT'),
                                        ('Reputed University (like BHU, DU etc)', 'Reputed University (like BHU, DU etc)'),
-                                       ('Regional and private colleges', 'Regional and private colleges')],
+                                       ('Regional and private collages', 'Regional and private colleges')],
                               validators=[DataRequired()])
 
     attendance_in_class = RadioField('Attendance in class (in percentage)', 
@@ -164,14 +164,14 @@ class CPIPredictionForm(FlaskForm):
     learning_style = RadioField('Learning style (preferred way to learn)', 
                                 choices=[('from Professor in the class', 'From Professor in the class'),
                                          ('from friends after the class', 'From friends after the class'),
-                                         ('from youTube or some online platforms', 'From YouTube or some online platforms'),
+                                         ('from youtube or some online platforms', 'From YouTube or some online platforms'),
                                          ('reading from books', 'Reading from books')],
                                 validators=[DataRequired()])
 
     
     sleeping_time = RadioField('sleeping patterns (what time usually you sleep)', 
-                                 choices=[('12 am or before', '12 am or before'),
-                                          ('1 am', '1 am'),
+                                 choices=[('12am or before', '12 am or before'),
+                                          ('1am', '1 am'),
                                           ('2 am', '2 am'),
                                           ('3 am or later', '3 am or later')],
                                  validators=[DataRequired()])
@@ -183,7 +183,8 @@ class CPIPredictionForm(FlaskForm):
     class_buddy_friend =RadioField('Your class and bench buddy friend',
                                    choices=[('better than you in study','better than you in study'),
                                             ('almost same as you in study','almost same as you in study'),
-                                            ('worse than you in study','worse than you in study')])
+                                            ('worse than you in study','worse than you in study')],
+                                            validators=[DataRequired()])
 
     relationship_status_in_last_sem = RadioField('Relationship Status (in last semester)', 
                                       choices=[('Healthy Relationship', 'Healthy Relationship'),
