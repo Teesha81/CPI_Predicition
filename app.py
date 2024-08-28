@@ -1,8 +1,10 @@
+import numpy 
+import pandas 
 from flask import Flask, render_template, request
 from forms import CPIPredictionForm  
 import joblib
-import numpy as np
-import pandas as pd
+
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here'
@@ -44,21 +46,26 @@ def index():
             'Learning style': form.learning_style.data,
             'Sleeping time': form.sleeping_time.data,
             'Extracurricular Activities': form.extracurricular_activities.data,
-            'your class buddy friend': form.class_buddy_friend.data,
+            'Your class buddy friend': form.class_buddy_friend.data,
             'Relationship Status in last sem': form.relationship_status_in_last_sem.data
         }
 
-        # Print extracted data for debugging
-        print("Form data:", data)
-        # Convert the data to a DataFrame for encoding
-        data_df = pd.DataFrame([data])
-        print(data_df)
-        # Apply encoders
-        preprocessed_data = encoders.transform(data_df)
-        
-        # Make prediction
-        prediction = model.predict(preprocessed_data)
-        cpi_prediction = float(prediction[0])
+ 
+  
+    data_df = pd.DataFrame([data])
+      
+    
+    preprocessed_data =encoders.transform(data_df)
+
+    # Convert to DataFrame with the correct feature names
+    import pandas as pd
+    transformed_columns = encoders.get_feature_names_out()
+    preprocessed_data_df = pd.DataFrame(preprocessed_data, columns=transformed_columns)
+
+    # Predict using the trained model
+    prediction = model.predict(preprocessed_data_df)
+    cpi_prediction = float(prediction[0])
+    cpi_prediction
         
     return render_template('index.html', form=form, result=cpi_prediction)
 
