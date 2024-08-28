@@ -13,7 +13,7 @@ encoders = joblib.load('preprocessor.joblib')
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = CPIPredictionForm()  
-    cpi_prediction = None
+    cpi_prediction= None
     print("index")
     if form.validate_on_submit():
         print("Form is valid")
@@ -56,7 +56,7 @@ def index():
         preprocessed_data_df = pd.DataFrame(preprocessed_data, columns=transformed_columns)
 
         prediction = model.predict(preprocessed_data_df)
-        cpi_prediction = float(prediction[0])
+        cpi_prediction = round(float(prediction[0]),1)
         print("CPI prediction:", cpi_prediction)
     else:
         print("Form validation failed")
