@@ -49,7 +49,7 @@ def index():
         }
 
         data_df = pd.DataFrame([data])
-        print("Form data:", data_df)
+        
     
         preprocessed_data = encoders.transform(data_df)
         transformed_columns = encoders.get_feature_names_out()
