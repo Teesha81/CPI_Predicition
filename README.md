@@ -9,13 +9,13 @@ In the pursuit of academic excellence, understanding where you stand can be cruc
 The model predicts CPI using a **Gradient Boosting Regressor**. We expanded a small dataset collected via a Google Form by generating 2000 synthetic entries with **CTGAN** from the **Synthetic Data Vault (SDV)**. Additionally, **Support Vector Regressor (SVR)** was used to create a more comprehensive dataset.
 
 ### Exploratory Data Analysis (EDA)
-Performed EDA with histograms, scatter plots, and heatmaps to understand the data. **ANOVA** was used for selecting the most relevant features.
+Performed EDA with histograms, scatter plots, heatmaps and boxplots to understand the data. **ANOVA** was used for selecting the most relevant features.
 
 ### Data Preprocessing
 Applied Ordinal and One-Hot Encoding using a **ColumnTransformer** to prepare the data for modeling.
 
 ### Model Optimization
-Fine-tuned the Gradient Boosting Regressor, achieving an R² score of 0.80 through **Hyperparameter tuning** and **cross-validation**.
+Fine-tuned the Gradient Boosting Regressor, achieving an **R² score** of **0.80** through **Hyperparameter tuning** and **cross-validation**.
 
 ### Deployment
 Deployed the model using **Flask** on **Azure**, offering an intuitive web application for CPI prediction.
