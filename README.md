@@ -22,7 +22,7 @@ Deployed the model using **Flask** on **Azure**, offering an intuitive web appli
 
 ## How to Use
 
-1. **Visit the Application:** **[CPI Prediction]**(https://cpi-predictor-g3brcfdcece8a3g4.southeastasia-01.azurewebsites.net)
+1. **Visit the Application:** [**CPI Prediction**](https://cpi-predictor-g3brcfdcece8a3g4.southeastasia-01.azurewebsites.net)
 2. **Input Data:** Complete the form with your academic and personal information.
 3. **Submit:** Send your data for analysis.
 4. **Get Prediction:** Receive an estimated CPI based on your inputs.
