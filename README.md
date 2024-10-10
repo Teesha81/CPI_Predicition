@@ -18,11 +18,12 @@ Applied Ordinal and One-Hot Encoding using a **ColumnTransformer** to prepare th
 Fine-tuned the Gradient Boosting Regressor, achieving an **R² score** of **0.80** through **Hyperparameter tuning** and **cross-validation**.
 
 ### Deployment
-Deployed the model using **Flask** on **Azure**, offering an intuitive web application for CPI prediction.
+Deployed the model using **Flask** on **Azure** and **Render**, offering an intuitive web application for CPI prediction.
+ 
 
 ## How to Use
 
-1. **Visit the Application:** [**CPI Prediction**](https://cpi-predictor-g3brcfdcece8a3g4.southeastasia-01.azurewebsites.net)
+1. **Visit the Application:** [**CPI Prediction**](https://cpi-predicition-2.onrender.com/)
 2. **Input Data:** Complete the form with your academic and personal information.
 3. **Submit:** Send your data for analysis.
 4. **Get Prediction:** Receive an estimated CPI based on your inputs.
