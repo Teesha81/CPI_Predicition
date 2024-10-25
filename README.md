@@ -23,8 +23,7 @@ Deployed the model using **Flask** on **Azure** and **Render**, offering an intu
 
 ## How to Use
 
-1. **Visit the Application:** [**CPI Prediction**](cpi-predictor-g3brcfdcece8a3g4.southeastasia-01.azurewebsites.net) if this doesn't work then
-2. [**Click Here**](https://cpi-predicition-2.onrender.com/)
+1. **Visit the Application:** [**CPI Prediction**](cpi-predictor-g3brcfdcece8a3g4.southeastasia-01.azurewebsites.net) if this doesn't work then [**Click Here**](https://cpi-predicition-2.onrender.com/)
 3. **Input Data:** Complete the form with your academic and personal information.
 4. **Submit:** Send your data for analysis.
 5. **Get Prediction:** Receive an estimated CPI based on your inputs.
